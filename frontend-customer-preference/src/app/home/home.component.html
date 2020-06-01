@@ -1,0 +1,15 @@
+
+<div class="row align-items-center" style="height: 300px;">
+
+    <form class="col-6 offset-3 jumbotron bg-white border rounded shadow" (ngSubmit)="login()" [formGroup]="idForm">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label  class="text-dark">Enter the customer id here</mat-label>
+            <input matInput type="text" formControlName="custId" minlength="4" maxlength="4">
+            <mat-hint>If you are not a registered customer, please contact store representative.</mat-hint>
+            <mat-error>Enter the valid id</mat-error>
+
+        </mat-form-field>
+        <button mat-raised-button matSuffix color="primary" [disabled]="!idForm.valid" class="float-right">Sign in</button>
+    </form>
+
+</div>

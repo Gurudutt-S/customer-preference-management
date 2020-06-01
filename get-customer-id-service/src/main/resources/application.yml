@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: get-customer-id-service
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/ctsproject
+    username: root
+    password: password
+  cloud:
+    config:
+      uri: http://localhost:8888
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+message:
+  message: please register
+server:
+  port: 8000
+customer-preference-service:
+  ribbon:
+    listOfservers: http://localhost:8001,http://localhost:8003

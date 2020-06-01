@@ -1,0 +1,16 @@
+spring:
+     application:
+           name: customer-preference-service
+
+     datasource:
+           url: jdbc:mysql://localhost:3306/ctsproject
+           username: root
+           password: password
+
+     jpa:
+           show-sql: true	
+           hibernate:
+              ddl-auto: update
+
+server:
+     port: 8001

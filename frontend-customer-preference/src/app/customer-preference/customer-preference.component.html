@@ -1,0 +1,89 @@
+<div class="row " style="height: 300px;">
+
+    <form class="col-10 offset-1 bg-white p-4 border overflow-auto shadow" style="max-height:480px;"
+        [formGroup]="updateForm" (ngSubmit)="updatePreference()">
+        <h2 class="text-center">Enter the details here</h2>
+        <input type="text" class="form-control-sm" formControlName="id" style="display:none;">
+        <div >
+            <mat-form-field appearance="" class="w-100 col" style="display:none;">
+                <mat-label>customer Id</mat-label>
+                <input matInput placeholder="id" formControlName="custId" disabled>
+            </mat-form-field>
+            <mat-form-field appearance="" class="w-100">
+                <mat-label>Name <span class="text-danger">*</span></mat-label>
+                <input matInput placeholder="please fill out name" pattern="[A-Za-z]+" formControlName="name">
+                <mat-error>Name must conatin only alphabets</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="" class="w-100 col">
+                <mat-label>phone <span class="text-danger">*</span></mat-label>
+                <span matPrefix>+91 &nbsp;</span>
+                <input type="tel" matInput #tel placeholder="Ex. 7783242375" minlength="10" formControlName="phone"
+                    maxlength="10" pattern="[0-9]+">
+                <mat-hint align="end">{{tel.value.length}} / 10</mat-hint>
+                <mat-error>Enter valid phone number</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="" class="w-100 col">
+                <mat-label>E-mail <span class="text-danger">*</span></mat-label>
+                <input matInput placeholder="abc@abc.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    formControlName="email">
+                <mat-error>Enter e-mail in correct format</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="" class="w-100 col">
+                <mat-label>Home Address <span class="text-danger">*</span></mat-label>
+                <textarea matInput placeholder="enter your home address" formControlName="homeAddress"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="" class="w-100 col">
+                <mat-label>Work Address <span class="text-danger">*</span></mat-label>
+                <textarea matInput placeholder="enter your work address" formControlName="workAddress"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>prefered contact: </label><br>
+                <mat-radio-group aria-label="prefered contact" formControlName="preferedContact" required>&nbsp;
+                    <mat-radio-button value="phone" name="preferedContact">phone
+                    </mat-radio-button>&nbsp;
+                    <mat-radio-button value="email" name="preferedContact">e-mail
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="col">
+                <label>prefered address: </label><br>
+                <mat-radio-group aria-label="prefered address" formControlName="preferedAddress">&nbsp;
+                    <mat-radio-button value="home" name="preferedAddress">home
+                    </mat-radio-button>&nbsp;
+                    <mat-radio-button value="work" name="preferedAddress">work
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="col">
+                <label>delivery timing : </label><br>
+                <mat-radio-group aria-label="delivery timing" formControlName="deliveryTimings">&nbsp;
+                    <mat-radio-button value="Morning" name="deliveryTimings">9am
+                        - 12pm
+                    </mat-radio-button>&nbsp;
+                    <mat-radio-button value="Afternoon" name="deliveryTimings">
+                        1am - 6pm
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div><br>
+        <div class=" row">
+            <div class="col">
+                <mat-checkbox formControlName="availableOnSunday">can deliver on sunday!</mat-checkbox>
+            </div>
+            <div class="col">
+                <mat-checkbox formControlName="offerUpdates">send updates on new offers.</mat-checkbox>
+            </div>
+        </div>
+
+        <button mat-raised-button matSuffix color="primary" [disabled]="!updateForm.valid"
+            class="float-right">Submit</button>
+
+    </form>
+
+</div>
