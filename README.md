@@ -76,7 +76,7 @@ For running all the microservices
 Right click on the project
     -Run as spring boot app
     -using post mapping update the values in database
-    -The port number used is 8060
+    -The port number used is 8002
 ```
 
 `get-customer-id-service`
@@ -92,5 +92,5 @@ Right click on the project
 ```java
 Right click on the project
     -Run as spring boot app
-    -the port number used is 8500
+    -the port number used is 8001
 ```
